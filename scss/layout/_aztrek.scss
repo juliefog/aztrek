@@ -1,0 +1,53 @@
+// Section 2 Aztrek
+
+.aztrek {
+    margin-top: 100px;
+
+    .logo-section {
+        color: $orange;
+        width: 119px;
+        height: 67px;
+        margin: 40px auto;
+    }
+
+    h1 {
+        font-size: 1em;
+        font-weight: 500;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .fas {
+        font-size: 4em;
+        color: $orange;
+    }
+
+    .item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        padding: 40px;
+    }
+
+    // A partir de tablette medium:
+    @media(min-width:$medium-width) {
+        .main-item {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

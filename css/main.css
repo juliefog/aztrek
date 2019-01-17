@@ -1,0 +1,678 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  background-color: #fdf5e2;
+  margin: 0; }
+  @media (min-width: 768px) {
+    body .main-nav {
+      width: 20%; }
+    body .corps {
+      width: 80%;
+      margin-left: 20%; } }
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+
+a {
+  display: block;
+  text-decoration: none;
+  color: #fff; }
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto; }
+
+body {
+  font-family: "Fira Sans Condensed", arial; }
+
+h3,
+h2 {
+  font-family: "Luckiest Guy", "Fira Sans Condensed", arial, arial;
+  letter-spacing: .1em;
+  font-size: 1.125em; }
+
+#carousel {
+  display: none; }
+  #carousel .owl-carousel .owl-theme .slide-top img {
+    width: 100%; }
+  @media (min-width: 768px) {
+    #carousel {
+      display: block; }
+      #carousel .owl-dots {
+        display: none; }
+      #carousel .slider-infos {
+        font-size: 1.5rem;
+        color: #fff;
+        top: 175px;
+        right: 70px;
+        position: absolute; }
+        #carousel .slider-infos .reseaux {
+          display: flex;
+          justify-content: space-around; }
+          #carousel .slider-infos .reseaux img {
+            width: 54px;
+            height: 54px; } }
+
+.recherche {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f3d998;
+  padding: 40px; }
+  @media (min-width: 768px) {
+    .recherche {
+      flex-direction: row; } }
+  .recherche select {
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    width: 100%;
+    padding: 10px;
+    margin: 10px; }
+
+.main-nav {
+  background-color: #e2aa1f;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px; }
+  @media (min-width: 768px) {
+    .main-nav {
+      min-height: 100vh;
+      padding: 20px;
+      position: fixed;
+      z-index: 9999;
+      flex-direction: column;
+      justify-content: flex-start; }
+      .main-nav .logo-nav {
+        width: 104px;
+        height: 58px; } }
+  @media (min-width: 1280px) {
+    .main-nav {
+      min-height: 100vh;
+      padding: 10px;
+      position: fixed;
+      flex-direction: column;
+      justify-content: flex-start; }
+      .main-nav .logo-nav {
+        width: 200px;
+        height: 113px; }
+      .main-nav .nav {
+        font-size: 1.5em; }
+      .main-nav .burger {
+        display: none; } }
+
+.main-menu {
+  position: absolute;
+  z-index: 50;
+  top: 0;
+  left: -200px;
+  height: 100vh;
+  width: 200px;
+  background-color: #e2aa1f;
+  transition: .5s;
+  top: 200px;
+  padding: 20px; }
+  @media (min-width: 1280px) {
+    .main-menu {
+      position: static;
+      height: auto;
+      width: auto; } }
+
+.nav-expanded .main-menu {
+  left: 0; }
+
+.logo-nav {
+  position: relative;
+  z-index: 51;
+  width: 64px;
+  height: 36px; }
+
+.burger {
+  position: relative;
+  z-index: 52;
+  margin-top: 20px;
+  width: 40px;
+  height: 40px; }
+
+.has-sublist ul {
+  display: none; }
+
+#populaire {
+  background: url("../images/bg_section_aztrek_populaire_mobile.jpg") no-repeat;
+  background-size: cover; }
+  #populaire h2 {
+    color: #cc5803;
+    text-align: center;
+    background: url("../images/soleil_orange.svg") no-repeat;
+    background-position: center bottom;
+    background-size: 100px;
+    padding-bottom: 30px; }
+  #populaire h4 {
+    color: #fff;
+    font-weight: normal;
+    position: absolute; }
+    #populaire h4 .capital {
+      text-transform: uppercase; }
+
+.populaire-item .populaire-img {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; }
+.populaire-item .pays-pop {
+  position: relative;
+  margin: 10px; }
+  @media (min-width: 768px) {
+    .populaire-item .pays-pop {
+      flex-basis: 40%; } }
+  @media (min-width: 1280px) {
+    .populaire-item .pays-pop {
+      flex-basis: 30%; } }
+  .populaire-item .pays-pop h4 {
+    bottom: 1px;
+    left: 20px; }
+  .populaire-item .pays-pop:hover .texte-hover {
+    opacity: 1; }
+  .populaire-item .pays-pop .texte-hover {
+    color: #fff;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    margin: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    text-align: left;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: .5s; }
+    .populaire-item .pays-pop .texte-hover li {
+      padding: 10px; }
+    .populaire-item .pays-pop .texte-hover a {
+      display: inline-block;
+      border-radius: 5px;
+      border: none;
+      background-color: #e2aa1f;
+      color: #fff;
+      font-family: "Fira Sans Condensed", arial;
+      letter-spacing: .1em;
+      padding: 1em 1.5em;
+      text-align: center;
+      margin-top: 50px; }
+
+.aztrek {
+  margin-top: 100px; }
+  .aztrek .logo-section {
+    color: #cc5803;
+    width: 119px;
+    height: 67px;
+    margin: 40px auto; }
+  .aztrek h1 {
+    font-size: 1em;
+    font-weight: 500;
+    text-align: center;
+    padding: 10px; }
+  .aztrek .fas {
+    font-size: 4em;
+    color: #cc5803; }
+  .aztrek .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    padding: 40px; }
+  @media (min-width: 768px) {
+    .aztrek .main-item {
+      display: flex;
+      flex-direction: row; } }
+
+.carte {
+  background-color: #508C85;
+  position: relative; }
+  .carte h2 {
+    color: #fff;
+    text-align: center;
+    font-size: 2em;
+    background: url("../images/soleil-blanc.svg") no-repeat;
+    background-position: center bottom;
+    background-size: 100px;
+    padding-bottom: 30px;
+    padding: 20px; }
+  .carte h3,
+  .carte p {
+    color: #fff;
+    padding: 20px; }
+  .carte .carte-item {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center; }
+    @media (min-width: 768px) {
+      .carte .carte-item {
+        flex-direction: row; } }
+    .carte .carte-item p {
+      color: #fff;
+      font-weight: 600;
+      position: relative;
+      top: 20px;
+      left: 30px; }
+    .carte .carte-item img {
+      width: 103px;
+      height: 30px;
+      top: 7px;
+      left: 30px; }
+  @media (min-width: 1280px) {
+    .carte .info-carte {
+      position: absolute;
+      right: 30px;
+      top: 500px; }
+    .carte h3 {
+      position: absolute;
+      bottom: 50px;
+      left: 20px; } }
+  .carte .carte-img {
+    display: none; }
+    @media (min-width: 1280px) {
+      .carte .carte-img {
+        display: block; }
+        .carte .carte-img a {
+          transition: .3s; }
+          .carte .carte-img a .st7 {
+            transition: .3s;
+            opacity: 0; }
+          .carte .carte-img a:hover .st1 {
+            fill: #a35c3b; }
+          .carte .carte-img a:hover .st2 {
+            fill: #417a53; }
+          .carte .carte-img a:hover .st3 {
+            fill: #a53533; }
+          .carte .carte-img a:hover .st4 {
+            fill: #bb973d; }
+          .carte .carte-img a:hover .st5 {
+            fill: #b45b5b; }
+          .carte .carte-img a:hover .st7 {
+            opacity: 1; } }
+  .carte .pays {
+    display: flex;
+    width: 156px;
+    height: 156px;
+    border-radius: 50%;
+    margin: 20px;
+    position: relative; }
+    @media (min-width: 1280px) {
+      .carte .pays {
+        display: none; } }
+    .carte .pays .item-pays {
+      position: absolute;
+      top: 10px; }
+      .carte .pays .item-pays img {
+        margin: 8px 30px; }
+  .carte .mexique-carte {
+    background-color: #e2aa1f; }
+    .carte .mexique-carte:hover {
+      background-color: #a07815; }
+  .carte .guatemala-carte {
+    background-color: #FF8686; }
+    .carte .guatemala-carte:hover {
+      background-color: #ff3a3a; }
+  .carte .salvador-carte {
+    background-color: #DB4A47; }
+    .carte .salvador-carte:hover {
+      background-color: #b32623; }
+  .carte .honduras-carte {
+    background-color: #60B47A; }
+    .carte .honduras-carte:hover {
+      background-color: #408856; }
+  .carte .costarica-carte {
+    background-color: #ED8757; }
+    .carte .costarica-carte:hover {
+      background-color: #e05818; }
+
+.insta h2 {
+  color: #cc5803;
+  text-align: center;
+  background: url("../images/soleil_orange.svg") no-repeat;
+  background-position: center bottom;
+  background-size: 100px;
+  padding-bottom: 30px; }
+.insta .insta-texte {
+  color: #292c2e;
+  text-align: center; }
+
+.item-insta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 100px; }
+  .item-insta .insta {
+    position: relative;
+    margin: 10px; }
+    .item-insta .insta:hover .text-hover {
+      opacity: 1; }
+    .item-insta .insta .text-hover {
+      color: #fff;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.5);
+      margin: 0;
+      top: 0;
+      bottom: 0;
+      opacity: 0;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+      text-align: left;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: .5s; }
+      .item-insta .insta .text-hover .far, .item-insta .insta .text-hover .fas {
+        margin-right: 10px; }
+
+.texte-conseils {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.item-footer {
+  background-color: #f3d998;
+  margin-top: 30px; }
+  @media (min-width: 1280px) {
+    .item-footer {
+      justify-content: space-around;
+      display: flex; } }
+  .item-footer a {
+    color: #e2aa1f; }
+    .item-footer a:hover {
+      color: #B98B19; }
+  .item-footer p {
+    color: #e2aa1f; }
+  .item-footer .item1-footer,
+  .item-footer .item2-footer,
+  .item-footer .item3-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 50px; }
+    .item-footer .item1-footer .logo-footer,
+    .item-footer .item2-footer .logo-footer,
+    .item-footer .item3-footer .logo-footer {
+      width: 182px;
+      height: 103px;
+      padding-bottom: 150px; }
+  .item-footer .item2-footer .newsletter {
+    width: 100%; }
+    .item-footer .item2-footer .newsletter input[type=email] {
+      background: rgba(255, 255, 255, 0.8);
+      border: none;
+      color: #e2aa1f;
+      padding: 1em .5em;
+      border-radius: 5px;
+      width: 100%; }
+    .item-footer .item2-footer .newsletter input[type=submit] {
+      width: 80px; }
+  .item-footer .item2-footer .reseau-footer {
+    display: flex;
+    margin: 20px auto; }
+
+.allsejour h1 {
+  color: #e2aa1f;
+  text-align: center;
+  padding-top: 50px; }
+
+.sejours {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 100px; }
+
+.sejour {
+  margin: 20px; }
+
+.item-sejour {
+  border-radius: 5px;
+  position: relative; }
+  .item-sejour:hover .text-hover {
+    opacity: 1; }
+  .item-sejour .text-hover {
+    color: #fff;
+    position: absolute;
+    background: rgba(63, 59, 39, 0.6);
+    margin: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    text-align: left;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: .5s;
+    border-radius: 5px 5px 0 0; }
+
+.sejour-info {
+  text-align: center;
+  background-color: #fff;
+  width: 305px;
+  margin: auto;
+  padding: 20px; }
+
+.tag {
+  background-color: #e2aa1f;
+  color: #fff;
+  width: 200px;
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto;
+  padding: .5em; }
+  .tag:hover {
+    background-color: #B98B19; }
+
+.sejour-top p {
+  text-align: center;
+  padding: 50px; }
+.sejour-top img {
+  width: 100%; }
+
+.itineraire {
+  text-align: center;
+  color: #e2aa1f;
+  font-size: 2em;
+  margin: 100px 0 20px 0; }
+
+.infos-sejour {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 40px; }
+  .infos-sejour p {
+    background-color: #e2aa1f;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px; }
+
+.slick-dots li button {
+  font-size: 2em;
+  color: #e2aa1f;
+  margin-top: 20px; }
+
+.slick-dots li button::before {
+  content: ""; }
+
+.slick-prev:before,
+.slick-next:before {
+  content: ""; }
+
+@media (min-width: 1280px) {
+  .slick-next {
+    background: url("../images/fleche_droite.png");
+    width: 86px;
+    height: 86px;
+    top: 110%;
+    left: 90%; }
+
+  .slick-prev {
+    background: url("../images/fleche_gauche.png");
+    color: #e2aa1f;
+    width: 86px;
+    height: 86px;
+    top: 110%;
+    left: 10%; }
+
+  .slick-prev:hover,
+  .slick-prev:focus {
+    background: url("../images/fleche_gauche.png"); }
+
+  .slick-next:hover,
+  .slick-next:focus {
+    background: url("../images/fleche_droite.png"); } }
+@media (min-width: 768px) {
+  .infos-sejour {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 40px; }
+    .infos-sejour p {
+      background-color: #e2aa1f;
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px; }
+
+  .slick-next {
+    background: url("../images/fleche_droite.png");
+    width: 86px;
+    height: 86px;
+    top: 110%;
+    left: 80%; }
+
+  .slick-prev {
+    background: url("../images/fleche_gauche.png");
+    color: #e2aa1f;
+    width: 86px;
+    height: 86px;
+    top: 110%;
+    left: 10%; }
+
+  .slick-prev:hover,
+  .slick-prev:focus {
+    background: url("../images/fleche_gauche.png"); }
+
+  .slick-next:hover,
+  .slick-next:focus {
+    background: url("../images/fleche_droite.png"); } }
+.jour {
+  background-color: #f3d998;
+  padding: 20px; }
+  .jour .jour-infos h3 {
+    text-align: center;
+    font-size: 2em;
+    text-transform: uppercase;
+    color: #cc5803; }
+  .jour .jour-infos h4 {
+    text-align: center;
+    font-size: 1.5em;
+    letter-spacing: .3em;
+    color: #cc5803; }
+
+.jour-images {
+  margin-top: 40px; }
+  .jour-images img {
+    margin-top: 40px; }
+
+@media (min-width: 1280px) {
+  .jour-images {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px; } }
+.reservation .btn {
+  margin-left: 50px; }
+
+.reservation {
+  margin-top: 280px; }
+  .reservation .btn {
+    margin: 50px 50px; }
+
+.reservation p {
+  margin-left: 40px; }
+
+table {
+  border-collapse: collapse;
+  background-color: #f3d998;
+  width: 100%;
+  margin-bottom: 100px; }
+  table thead {
+    background-color: #f3d998; }
+  table tr {
+    border-color: transparent; }
+  table tbody tr:nth-of-type(odd) {
+    background: #fdf5e2; }
+  table th,
+  table td {
+    padding: 10px;
+    text-align: center; }
+
+.btn {
+  display: inline-block;
+  border-radius: 5px;
+  border: none;
+  background-color: #e2aa1f;
+  color: #fff;
+  font-family: "Luckiest Guy", "Fira Sans Condensed", arial, arial;
+  letter-spacing: .1em;
+  padding: 1em 1.5em;
+  text-align: center; }
+
+.btn:hover {
+  display: inline-block;
+  border-radius: 5px;
+  border: none;
+  background-color: #B98B19;
+  color: #fff;
+  font-family: "Luckiest Guy", "Fira Sans Condensed", arial, arial;
+  letter-spacing: .1em;
+  padding: 1em 1.5em;
+  text-align: center; }
+
+.btn-reserve {
+  display: inline-block;
+  border-radius: 5px;
+  border: none;
+  background-color: #60B47A;
+  color: #fff;
+  font-family: "Luckiest Guy", "Fira Sans Condensed", arial, arial;
+  letter-spacing: .1em;
+  padding: 1em 1.5em;
+  text-align: center; }
+
+.btn-reserve:hover {
+  display: inline-block;
+  border-radius: 5px;
+  border: none;
+  background-color: #356644;
+  color: #fff;
+  font-family: "Luckiest Guy", "Fira Sans Condensed", arial, arial;
+  letter-spacing: .1em;
+  padding: 1em 1.5em;
+  text-align: center; }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,11 @@
+@mixin bouton ($base-color,$font-family, $color-font){
+    display: inline-block;
+    border-radius: 5px;
+    border : none;
+    background-color: $base-color;
+    color: $color-font;
+    font-family: $font-family;
+    letter-spacing: .1em;
+    padding: 1em 1.5em;
+    text-align: center;
+  }

@@ -1,0 +1,55 @@
+#carousel {
+    display: none;
+
+    .owl-carousel .owl-theme .slide-top img{
+        width:100%;
+    }
+
+    @media(min-width: $medium-width) {
+        display: block;
+
+        .owl-dots{
+            display: none;
+        }
+
+        .slider-infos {
+            font-size: 1.5rem;
+            color: $blanc;
+            top: 175px;
+            right: 70px;
+            position: absolute;
+
+            .reseaux {
+                display: flex;
+                justify-content: space-around;
+
+                img {
+                    width: 54px;
+                    height: 54px;
+                }
+            }
+        }
+
+    }
+}
+
+.recherche {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $bg-footer;
+    padding: 40px;
+
+    @media (min-width: $medium-width){
+        flex-direction: row;
+    }
+
+select{
+background:rgba($color: $blanc, $alpha: .8);
+border: none;
+width: 100%;
+padding: 10px;
+margin: 10px;
+}
+}

@@ -1,0 +1,38 @@
+.reservation{
+    margin-top: 280px;
+
+    .btn{
+        margin: 50px 50px;
+    }
+}
+
+
+.reservation p {
+    margin-left: 40px;
+}
+
+table {
+    border-collapse: collapse;
+    background-color: $bg-footer;
+    width: 100%;
+    margin-bottom: 100px;
+
+    thead {
+        background-color: $bg-footer;
+    }
+
+    tr {
+        border-color: transparent;
+    }
+
+    tbody tr:nth-of-type(odd) {
+        background: $bg-color;
+    }
+
+    th,
+    td {
+        padding: 10px;
+        text-align: center;
+
+    }
+}

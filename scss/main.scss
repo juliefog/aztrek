@@ -1,0 +1,21 @@
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+@import 'vendors/normalize';
+
+@import 'base/bases';
+@import 'base/typography';
+
+@import 'layout/header';
+@import 'layout/navigation';
+@import 'layout/populaire';
+@import 'layout/aztrek';
+@import 'layout/carte';
+@import 'layout/instagram';
+@import 'layout/footer';
+@import 'layout/pays';
+@import 'layout/sejours';
+@import 'layout/reservation';
+
+@import 'components/buttons';
+

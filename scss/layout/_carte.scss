@@ -1,0 +1,174 @@
+// Section 3 carte:
+
+.carte {
+    background-color: $bg-carte;
+    position: relative;
+
+    h2 {
+        color: $blanc;
+        text-align: center;
+        font-size: 2em;
+        background: url('../images/soleil-blanc.svg') no-repeat;
+        background-position: center bottom;
+        background-size: 100px;
+        padding-bottom: 30px;
+        padding: 20px;
+    }
+
+    h3,
+    p {
+        color: $blanc;
+        padding :20px;
+    }
+
+    .carte-item {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+
+        @media(min-width: $medium-width) {
+            flex-direction: row;
+        }
+
+        p {
+            color: $blanc;
+            font-weight: 600;
+            position: relative;
+            top: 20px;
+            left: 30px;
+        }
+
+        img {
+            width: 103px;
+            height: 30px;
+            top: 7px;
+            left: 30px;
+        }
+    }
+
+    @media (min-width: $large-width) {
+
+        .info-carte {
+            position: absolute;
+            right: 30px;
+            top: 500px;
+        }
+
+        h3 {
+            position: absolute;
+            bottom: 50px;
+            left: 20px;
+        }
+    }
+    // La carte disparait en mobile et réapparait en desktop
+
+        .carte-img {
+            display: none;
+
+            @media (min-width: $large-width) {
+                display: block;
+
+                a {
+                    transition: .3s;
+
+                    .st7 {
+                        transition: .3s;
+                        opacity: 0;
+                    }
+
+                    &:hover {
+                        .st1 {
+                            fill: rgb(163, 92, 59);
+                        }
+
+                        .st2 {
+                            fill: rgb(65, 122, 83);
+                        }
+
+                        .st3 {
+                            fill: rgb(165, 53, 51);
+                        }
+
+                        .st4 {
+                            fill: rgb(187, 151, 61);
+                        }
+
+                        .st5 {
+                            fill: rgb(180, 91, 91);
+                        }
+
+                        .st7 {
+                            opacity: 1;
+                        }
+                    }
+                }
+
+            }
+        }
+
+
+        .pays {
+            display: flex;
+            width: 156px;
+            height: 156px;
+            border-radius: 50%;
+            margin: 20px;
+            position: relative;
+
+            @media (min-width: $large-width) {
+                display: none;
+            }
+
+            .item-pays {
+                position: absolute;
+                top:10px;
+                img{
+                    margin: 8px 30px;
+                    
+                }
+            }
+
+        }
+
+        .mexique-carte {
+            background-color: $jaune;
+
+            &:hover {
+                background-color: darken($jaune, 15%);
+            }
+        }
+
+        .guatemala-carte {
+            background-color: $gtml;
+
+            &:hover {
+                background-color: darken($gtml, 15%);
+            }
+        }
+
+        .salvador-carte {
+            background-color: $slvd;
+
+            &:hover {
+                background-color: darken($slvd, 15%);
+            }
+        }
+
+        .honduras-carte {
+            background-color: $hdrs;
+
+            &:hover {
+                background-color: darken($hdrs, 15%);
+            }
+        }
+
+        .costarica-carte {
+            background-color: $ctrc;
+
+            &:hover {
+                background-color: darken($ctrc, 15%);
+            }
+        }
+    }

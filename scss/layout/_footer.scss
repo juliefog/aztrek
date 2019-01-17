@@ -1,0 +1,60 @@
+.item-footer {
+    background-color: $bg-footer;
+    margin-top: 30px;
+
+    @media(min-width: $large-width) {
+    justify-content: space-around;
+    display: flex;
+    }
+
+    a,
+        {
+        color: $jaune;
+        &:hover{
+            color:$hover-color;
+        }
+    }
+
+    p{
+        color:$jaune;
+    }
+
+    .item1-footer,
+    .item2-footer,
+    .item3-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 50px;
+
+        .logo-footer {
+            width: 182px;
+            height: 103px;
+            padding-bottom: 150px;
+        }
+    }
+
+    .item2-footer {
+        .newsletter {
+            width: 100%;
+
+            input[type=email] {
+                background: rgba($color: $blanc, $alpha: .8);
+                border: none;
+                color: $jaune;
+                padding: 1em .5em;
+                border-radius: 5px;
+                width: 100%;
+            }
+
+            input[type=submit] {
+                width: 80px;
+            }
+        }
+
+        .reseau-footer {
+            display: flex;
+            margin: 20px auto;
+        }
+    }
+}

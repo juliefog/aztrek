@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 53.998">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="menu" transform="translate(0 -0.001)">
+    <g id="Groupe_33" data-name="Groupe 33" transform="translate(0 0.001)">
+      <path id="Tracé_98" data-name="Tracé 98" class="cls-1" d="M27,54A27,27,0,1,1,54,27,27.03,27.03,0,0,1,27,54ZM27,3.267A23.733,23.733,0,1,0,50.734,27,23.761,23.761,0,0,0,27,3.267Z" transform="translate(0 -0.001)"/>
+      <rect id="Rectangle_16" data-name="Rectangle 16" class="cls-1" width="24.575" height="3.266" transform="translate(14.713 25.367)"/>
+      <rect id="Rectangle_17" data-name="Rectangle 17" class="cls-1" width="24.575" height="3.266" transform="translate(14.713 16.678)"/>
+      <rect id="Rectangle_18" data-name="Rectangle 18" class="cls-1" width="24.575" height="3.266" transform="translate(14.712 34.054)"/>
+    </g>
+  </g>
+</svg>

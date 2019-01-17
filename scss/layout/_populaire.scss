@@ -1,0 +1,93 @@
+// Section 1 Populaire:
+
+#populaire {
+    background: url('../images/bg_section_aztrek_populaire_mobile.jpg') no-repeat;
+    background-size: cover;
+
+    h2 {
+        color: $orange;
+        text-align: center;
+        background: url('../images/soleil_orange.svg') no-repeat;
+        background-position:center bottom;
+        background-size: 100px;
+        padding-bottom: 30px;
+    }
+
+    
+    h4 {
+        color: $blanc;
+        font-weight: normal;
+
+        .capital {
+            text-transform: uppercase;
+        }
+
+        position: absolute;
+    }
+}
+
+.populaire-item {
+
+    .populaire-img {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+
+    .pays-pop {
+
+        position: relative;
+        margin: 10px;
+
+        @media(min-width: $medium-width) {
+            flex-basis: 40%;
+        }
+        @media(min-width: $large-width) {
+            flex-basis: 30%;
+        }
+
+        h4 {
+            bottom: 1px;
+            left: 20px;
+        }
+
+        &:hover .texte-hover {
+            opacity: 1;
+        }
+
+        .texte-hover {
+            color: $blanc;
+            position: absolute;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            margin: 0;
+            top: 0;
+            bottom: 0;
+            opacity: 0;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px;
+            text-align: left;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: .5s;
+
+
+            li{
+                padding:10px;
+            }
+
+            a{
+                @include bouton ($jaune,$font-default, $blanc);
+                margin-top:50px;
+            }
+        }
+    }
+
+
+}

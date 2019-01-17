@@ -1,0 +1,15 @@
+.btn{
+    @include bouton($jaune, $font-title, $blanc)
+}
+
+.btn:hover{
+    @include bouton($hover-color, $font-title, $blanc)
+}
+
+.btn-reserve{
+    @include bouton($hdrs, $font-title, $blanc)
+}
+
+.btn-reserve:hover{
+    @include bouton(rgb(53, 102, 68), $font-title, $blanc)
+}
