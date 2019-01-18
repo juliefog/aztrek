@@ -72,7 +72,7 @@
 
                 <!-- nav4 -->
                 <li class="has-sublist"><a href="#" class="nav-1">
-                        <h3>Mon compte</h3>
+                        <h3>Connexion</h3>
                     </a>
                     <ul class="nav-2">
                         <li><a href="#">Mes devis</a></li>
