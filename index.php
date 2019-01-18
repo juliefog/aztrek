@@ -8,8 +8,8 @@
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="css/jquery.sidr.light.min.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" type="text/css" href="css/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="css/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:300,300i,400,400i,500,500i,600,600i,700,700i|Luckiest+Guy"
@@ -90,6 +90,7 @@
                         <li><a href="#">02 99 00 00 00</a></li>
                     </ul>
                 </li>
+
             </ul>
         </div>
         <a href="#" class="langue">
@@ -97,7 +98,7 @@
         </a>
     </nav>
 
-    
+
     <div class="corps">
 
         <!-- HEADER -->
