@@ -31,7 +31,7 @@ body {
 
 h3,
 h2 {
-  font-family: "Luckiest Guy", "Fira Sans Condensed", arial, arial;
+  font-family: "Fjalla One", sans-serif, arial;
   letter-spacing: .1em;
   font-size: 1.125em; }
 
@@ -247,8 +247,7 @@ h2 {
     background: url("../images/soleil-blanc.svg") no-repeat;
     background-position: center bottom;
     background-size: 100px;
-    padding-bottom: 30px;
-    padding: 20px; }
+    padding-bottom: 30px; }
   .carte h3,
   .carte p {
     color: #fff;
@@ -276,8 +275,7 @@ h2 {
   @media (min-width: 1280px) {
     .carte .info-carte {
       position: absolute;
-      right: 30px;
-      top: 500px; }
+      bottom: 200px; }
     .carte h3 {
       position: absolute;
       bottom: 50px;
@@ -640,7 +638,7 @@ table {
   border: none;
   background-color: #e2aa1f;
   color: #fff;
-  font-family: "Luckiest Guy", "Fira Sans Condensed", arial, arial;
+  font-family: "Fjalla One", sans-serif, arial;
   letter-spacing: .1em;
   padding: 1em 1.5em;
   text-align: center; }
@@ -651,7 +649,7 @@ table {
   border: none;
   background-color: #B98B19;
   color: #fff;
-  font-family: "Luckiest Guy", "Fira Sans Condensed", arial, arial;
+  font-family: "Fjalla One", sans-serif, arial;
   letter-spacing: .1em;
   padding: 1em 1.5em;
   text-align: center; }
@@ -662,7 +660,7 @@ table {
   border: none;
   background-color: #60B47A;
   color: #fff;
-  font-family: "Luckiest Guy", "Fira Sans Condensed", arial, arial;
+  font-family: "Fjalla One", sans-serif, arial;
   letter-spacing: .1em;
   padding: 1em 1.5em;
   text-align: center; }
@@ -673,7 +671,7 @@ table {
   border: none;
   background-color: #356644;
   color: #fff;
-  font-family: "Luckiest Guy", "Fira Sans Condensed", arial, arial;
+  font-family: "Fjalla One", sans-serif, arial;
   letter-spacing: .1em;
   padding: 1em 1.5em;
   text-align: center; }

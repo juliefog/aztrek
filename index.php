@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
         crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:300,300i,400,400i,500,500i,600,600i,700,700i|Luckiest+Guy"
         rel="stylesheet">
 
@@ -72,7 +73,7 @@
 
                 <!-- nav4 -->
                 <li class="has-sublist"><a href="#" class="nav-1">
-                        <h3>Connexion</h3>
+                        <h3>Mon compte</h3>
                     </a>
                     <ul class="nav-2">
                         <li><a href="#">Mes devis</a></li>
