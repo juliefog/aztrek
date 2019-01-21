@@ -1,9 +1,15 @@
 <!-- NAV -->
+<?php
+require_once __DIR__. "/../config/parameters.php";
+require_once __DIR__ . "/../model/database.php";
 
-<?php require_once __DIR__. "/../config/parameters.php";?>
+$liste_pays = getAllEntities("pays");
+?>
+
+
 <nav class="main-nav">
     <div class="logo-nav">
-        <img src="images/logo_blanc.svg" alt="Aztrek">
+        <a href="index.php"><img src="images/logo_blanc.svg" alt="Aztrek"></a>
     </div>
 
     <!-- menu toggle -->
@@ -20,11 +26,9 @@
                 </a>
 
                 <ul class="nav-2">
-                    <li><a href="pays.html">Mexique</a></li>
-                    <li><a href="#">Guatemala</a></li>
-                    <li><a href="#">Salvador</a></li>
-                    <li><a href="#">Honduras</a></li>
-                    <li><a href="#">Costa Rica</a></li>
+                    <?php foreach ($liste_pays as $liste_pay) :?>
+                    <li><a href="pays.php?id=<?= $liste_pay["id"]; ?>"><?= $liste_pay["nom"]; ?></a></li>
+                    <?php endforeach; ?>
                 </ul>
             </li>
 

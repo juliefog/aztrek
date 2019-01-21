@@ -22,11 +22,15 @@ function getHeader(string $title, string $description, array $stylesheets = []) 
 }
 
 function getMenu() {
-    require_once 'layout/menu.php';
+    require_once 'layout/navigation.php';
 }
 
 function getFooter() {
     require_once 'layout/footer.php';
+}
+
+function getInstagram(){
+    require_once 'layout/instagram.php';
 }
 
 

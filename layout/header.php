@@ -1,9 +1,17 @@
+<?php
+
+require_once "model/database.php";
+$categories =getAllEntities("categorie");
+$liste_pays =getAllEntities("pays");
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8">
-    <title>Accueil | Aztrek</title>
+    <title> Accueil | Aztrek</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="favicon.ico">
@@ -19,6 +27,9 @@
 
     <link rel="stylesheet" href="css/main.css">
 
+    <?php foreach ($stylesheets as $stylesheet) : ?>
+    <link rel="stylesheet" href=" <?= $stylesheet; ?> ">
+    <?php endforeach; ?>
 </head>
 
 
@@ -63,11 +74,9 @@
     <div class="recherche">
         <select name="destinations" id="destinations">
             <option value>Destinations</option>
-            <option value="Mexique">Mexique</option>
-            <option value="Guatemala">Guatemala</option>
-            <option value="Salvador">Salvador</option>
-            <option value="Honduras">Honduras</option>
-            <option value="Costa Rica">Costa Rica</option>
+            <?php foreach ($liste_pays as $liste_pay) : ?>
+            <option value=" <?= $liste_pay["id"]; ?> "> <?= $liste_pay["nom"]; ?> </option>
+            <?php endforeach; ?>
         </select>
 
         <select name="sejour" id="sejour">

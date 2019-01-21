@@ -1,7 +1,9 @@
 <?php
+require_once 'model/database.php';
+require_once 'functions.php';
 
-require_once 'layout/navigation.php';
-require_once'layout/header.php';
+getMenu();
+getHeader("Accueil", "Aztrek site de voyages");
 
 ?>
 
@@ -93,7 +95,7 @@ require_once'layout/header.php';
                 <?php include('carte.svg') ?>
             </div>
             <div class="carte-item">
-                <a href="pays.html" class="pays mexique-carte">
+                <a href="pays.php" class="pays mexique-carte">
                     <div class="item-pays">
                         <p>Mexique</p>
                         <img src="images/soleil-blanc.svg" alt="aztrek">
@@ -132,5 +134,5 @@ require_once'layout/header.php';
         </section>
 
 
-       <?php require_once 'layout/instagram.php';?>
-       <?php require_once'layout/footer.php'; ?>
+      <?php getInstagram() ?>
+      <?php getFooter() ?>

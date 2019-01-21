@@ -1,7 +1,7 @@
 <?php
 require_once '../../../model/database.php';
 
-$categories = getAllEntities("categorie");
+$liste_pays = getAllEntities("pays");
 
 //Ereur dans une catégorie gérée ici:
 $error_msg = null;
@@ -20,7 +20,7 @@ if (isset($_GET['errcode'])) {
 require_once '../../layout/header.php';
 ?>
 
-<h1>Gestion des catégories</h1>
+<h1>Gestion des Payss</h1>
 
 <!--bouton:-->
 <a href="create.php" class="btn btn-primary">
@@ -47,16 +47,16 @@ require_once '../../layout/header.php';
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($categories as $categorie) : ?>
+        <?php foreach ($liste_pays as $liste_pay) : ?>
             <tr>
-                <td><?php echo $categorie['libelle']; ?></td>
+                <td><?php echo $liste_pay['nom']; ?></td>
                 <td class="actions">
-                    <a href="update.php?id=<?php echo $categorie['id']; ?>" class="btn btn-warning">
+                    <a href="update.php?id=<?php echo $liste_pay['id']; ?>" class="btn btn-warning">
                         <i class="fa fa-edit"></i>
                         Modifier
                     </a>
                     <form action="delete_query.php" method="POST">
-                        <input type="hidden" name="id" value="<?php echo $categorie['id']; ?>">
+                        <input type="hidden" name="id" value="<?php echo $liste_pay['id']; ?>">
                         <button type="submit" class="btn btn-danger">
                             <i class="fa fa-trash"></i>
                             Supprimer

@@ -1,7 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: fogliettijulie
- * Date: 2019-01-21
- * Time: 10:57
- */
+
+function insertPays(string $nom)
+{
+    global $connection;
+
+//    On veut envoyer des données dans la base de données (on sécurise la valeur libelle)
+    $query = "INSERT INTO pays(nom) VALUES (:nom)";
+
+
+    //On prépare et exécute la requête: (avec le binparam on associe le :libelle à la variable $libelle)
+    $stmt = $connection->prepare($query);
+    $stmt->bindParam(":nom", $nom);
+    $stmt->execute();
+}
