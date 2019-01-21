@@ -45,7 +45,7 @@
                         </a>
     
                         <ul class="nav-2">
-                            <li><a href="pays.html">Mexique</a></li>
+                            <li><a href="pays.php">Mexique</a></li>
                             <li><a href="#">Guatemala</a></li>
                             <li><a href="#">Salvador</a></li>
                             <li><a href="#">Honduras</a></li>
@@ -289,7 +289,7 @@
 
             <p>Ces tarifs sont valables pour des départs de Paris, Rennes, Lyon et Nantes.</p>
 
-            <a href="pays.html" class="btn">Retour aux séjours</a>
+            <a href="pays.php" class="btn">Retour aux séjours</a>
         </section>
 
         <!-- SECTION RESERVATION FIN -->
@@ -322,7 +322,7 @@
                 <div class="item3-footer">
                     <a href="#">Mention légales</a>
                     <p>Nos destinations</p>
-                    <a href="pays.html">Mexique</a>
+                    <a href="pays.php">Mexique</a>
                     <a href="#">Guatemala</a>
                     <a href="#">Salvador</a>
                     <a href="#">Honduras</a>
