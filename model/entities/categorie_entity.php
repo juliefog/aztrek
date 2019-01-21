@@ -4,7 +4,7 @@ function insertCategorie(string $libelle){
 
     global $connection;
 
-//    On veut envoyer des données dans la base de données (on sécure la valeur libelle)
+//    On veut envoyer des données dans la base de données (on sécurise la valeur libelle)
     $query ="INSERT INTO categorie(libelle) VALUES (:libelle)";
 
 
