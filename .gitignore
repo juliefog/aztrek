@@ -2,3 +2,4 @@
 .DS_Store
 config/parameters.php
 *.bak
+.sass-cache

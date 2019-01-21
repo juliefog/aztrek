@@ -195,7 +195,7 @@
 
                     <div class="pays-pop">
                         <a href="#"><img class="image" src="images/photo_costarica.jpg" alt="Aztrek Costa Rica"></a>
-                        <h4><span class="capital">Costa Rica</span> - Puntarenas</h4>
+                        <h4><span class="capital">Costa Rica</span> - Toucans et plage</h4>
 
                         <div class="texte-hover">
                             <ul>
