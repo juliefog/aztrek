@@ -5,7 +5,7 @@
 <form action="create_query.php" method="POST">
     <div class="form-group">
         <label>Titre</label>
-        <input type="text" name="libelle" class="form-control" placeholder="Libellé" required>
+        <input type="text" name="nom" class="form-control" placeholder="Libellé" required>
     </div>
     <button type="submit" class="btn btn-success">
         <i class="fa fa-check"></i>

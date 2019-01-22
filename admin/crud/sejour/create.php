@@ -3,6 +3,7 @@ require_once '../../../model/database.php';
 
 $liste_pays = getAllEntities("pays");
 $difficultes = getAllEntities("difficulte");
+$categories =getAllEntities("categorie");
 
 require_once '../../layout/header.php';
 ?>
@@ -12,11 +13,11 @@ require_once '../../layout/header.php';
     <form action="create_query.php" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label>Titre</label>
-            <input type="text" name="titre" class="form-control" placeholder="Titre" required>
+            <input type="text" name="titre" value="titre" class="form-control" placeholder="Titre" required>
         </div>
         <div class="form-group">
             <label>Pays</label>
-            <select name="categorie_id" class="form-control">
+            <select name="pays_id"  value="pays_id" class="form-control">
                 <?php foreach ($liste_pays as $liste_pay) : ?>
                     <option value="<?php echo $liste_pay["id"]; ?>">
                         <?php echo $liste_pay["nom"]; ?>
@@ -25,10 +26,22 @@ require_once '../../layout/header.php';
             </select>
         </div>
 
+        <div class="form-group">
+            <label>Catégorie</label>
+            <select name="categorie_id" value="categorie_id" class="form-control">
+                <?php foreach ($categories as $category) : ?>
+                    <option value="<?php echo $category["id"]; ?>">
+                        <?php echo $category["libelle"]; ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+
+
 
         <div class="form-group">
             <label>Image</label>
-            <input type="file" name="image" class="form-control" required>
+            <input type="file" name="image" value="image" class="form-control" required>
         </div>
         <div class="form-group">
             <label>Description</label>
@@ -37,12 +50,12 @@ require_once '../../layout/header.php';
 
         <div class="form-group">
             <label>Nombre de jours</label>
-            <input type="number" name="nombre" class="form-control" required>
+            <input type="number" name="nb_jour" value="nb_jour" class="form-control" required>
         </div>
 
         <div class="form-group">
             <label>Niveau de difficulté</label>
-            <select name="difficulte_id" id="form-control">
+            <select name="difficulte_id" value="difficulte_id" id="form-control">
                 <?php foreach ($difficultes as $difficulte) : ?>
                     <option value="<?= $difficulte['id']; ?> ">
                         <?= $difficulte['niveau']; ?>
@@ -53,7 +66,7 @@ require_once '../../layout/header.php';
 
 
         <div class="form-group form-check">
-            <input type="checkbox" name="publie" class="form-check-input" required>
+            <input type="checkbox" name="publie" value="publie" class="form-check-input" required>
             <label>Publié ?</label>
         </div>
         <button type="submit" class="btn btn-success">

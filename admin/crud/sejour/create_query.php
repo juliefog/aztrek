@@ -4,18 +4,20 @@ require_once '../../../model/database.php';
 
 $titre = $_POST['titre'];
 $categorie_id = $_POST['categorie_id'];
+$pays_id = $_POST['pays_id'];
 $description = $_POST['description'];
-$description_courte = $_POST['description_courte'];
-$couverts = $_POST['couverts'];
-$temps_prepa = $_POST['temps_prepa'];
-$temps_cuisson = $_POST['temps_cuisson'];
+$nb_jour = $_POST['nb_jour'];
+$difficulte_id = $_POST['difficulte_id'];
+
+
 $publie = ($_POST['publie'] == "on") ? 1 : 0;
 
-// Upload de l'image
-$filename = $_FILES["image"]["name"];
-$tmp = $_FILES["image"]["tmp_name"];
-move_uploaded_file($tmp, "../../../uploads/" . $filename);
 
-insertRecette($titre, $categorie_id, $filename, $description, $description_courte, $couverts, $temps_prepa, $temps_cuisson, $publie, $user["id"]);
+// Upload de l'image
+$image = $_FILES["image"]["name"];
+$tmp = $_FILES["image"]["tmp_name"];
+move_uploaded_file($tmp, "../../../uploads/" . $image);
+
+insertSejour($titre,$categorie_id, $pays_id, $difficulte_id, $description, $image, $publie, $nb_jour);
 
 header('Location: index.php');

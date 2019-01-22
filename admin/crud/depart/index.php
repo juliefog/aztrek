@@ -2,6 +2,8 @@
 require_once '../../../model/database.php';
 
 $departs = getAllEntities("depart");
+$sejour  = $_POST['titre'];
+$pays  = $_POST['nom'];
 
 
 
@@ -31,7 +33,7 @@ require_once '../../layout/header.php';
 </a>
 
 
-<!--Si y a des erreur ça s'affiche:-->
+<!--Si y a des erreurs ça s'affiche:-->
 <hr>
 
 <?php if ($error_msg) : ?>
@@ -59,7 +61,8 @@ require_once '../../layout/header.php';
                 <td><?php echo $depart['date_depart']; ?></td>
                 <td> <?= $depart['prix']; ?></td>
                 <td> <?= $depart['nb_places']; ?></td>
-                <td></td>
+                <td> <?= $sejour['titre']; ?></td>
+                <td> <?= $pays['nom']; ?></td>
 
                 <td class="actions">
                     <a href="update.php?id=<?php echo $depart['id']; ?>" class="btn btn-warning">

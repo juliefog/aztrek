@@ -21,3 +21,22 @@ function getUtilisateurByEmailMotDePasse(string $email, string $password){
 }
 
 
+
+function insertUtilisateur(string $nom, string $prenom, string $email, string $mdp){
+
+    global $connection;
+
+    $query ="
+    INSERT INTO utilisateur (nom, prenom, email, mdp)
+    VALUES (:nom, :prenom, :email, SHA1(:mdp))";
+
+    $stmt=$connection->prepare($query);
+    $stmt->bindParam(":email", $email);
+    $stmt->bindParam(":mdp", $mdp);
+    $stmt->bindParam(":prenom", $prenom);
+    $stmt->bindParam(":nom", $nom);
+    $stmt->execute();
+
+    return $stmt->execute();
+
+}

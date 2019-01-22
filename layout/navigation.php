@@ -63,6 +63,7 @@ $user = getCurrentUser();
                     <h3>Déconnexion </h3></a></li>
             <?php else:  ?>
                <li><a href="<?= SITE_ADMIN; ?>"><h3>Se connecter</h3></a></li>
+                <li><a href="<?= SITE_URL . "create_account.php"; ?>"><h3>S'inscrire</h3></a></li>
            <?php endif; ?>
 
             </li>

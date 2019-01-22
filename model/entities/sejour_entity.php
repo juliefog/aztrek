@@ -137,3 +137,28 @@ function getAllSejoursByPays(string $pays)
 }
 
 
+
+function insertSejour(string $titre, string $categorie_id, string $pays_id, string $difficulte_id, string $description, string $image, string $publie, string $nb_jour){
+
+    global $connection;
+
+    $query ="
+    INSERT INTO sejour (titre, categorie_id, pays_id, difficulte_id, description, image, nb_jour, publie)
+    VALUES (:titre, :categorie_id, :pays_id, :difficulte_id, :description, :image, :nb_jour, :publie)";
+
+    $stmt=$connection->prepare($query);
+    $stmt->bindParam(":titre", $titre);
+    $stmt->bindParam(":categorie_id", $categorie_id);
+    $stmt->bindParam(":pays_id", $pays_id);
+    $stmt->bindParam(":difficulte_id", $difficulte_id);
+    $stmt->bindParam(":description", $description);
+    $stmt->bindParam(":image", $image);
+    $stmt->bindParam(":nb_jour", $nb_jour);
+    $stmt->bindParam(":publie", $publie);
+    $stmt->execute();
+
+    return $stmt->execute();
+
+}
+;
+
