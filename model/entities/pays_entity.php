@@ -13,3 +13,17 @@ function insertPays(string $nom)
     $stmt->bindParam(":nom", $nom);
     $stmt->execute();
 }
+
+//Permet de modifier un pays dans l'admin:
+function updatePays(INT $id, string $nom){
+    global $connection;
+
+    $query ="UPDATE pays 
+    SET nom = :nom 
+    WHERE id = :id ";
+
+    $stmt = $connection->prepare($query);
+    $stmt->bindParam(":nom", $nom);
+    $stmt->bindParam(":id", $id);
+    $stmt->execute();
+}

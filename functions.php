@@ -1,12 +1,26 @@
 <?php
 //Elle fait un print_r et un pre.
-function debug($var, bool $die = true) {
+function debug($var, bool $die = true)
+{
     echo "<pre>";
     print_r($var);
     echo "</pre>";
     if ($die) {
         die;
     }
+}
+
+function getCurrentUser()
+{
+    //Démarrer la session si pas encore démarrée:
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+    //Récupérer l'utilisateur en cours si connecté:
+    if (isset($_SESSION['id'])) {
+        return getOneEntity("utilisateur", $_SESSION['id']);
+    }
+    return null;
 }
 
 /**
@@ -17,26 +31,31 @@ function debug($var, bool $die = true) {
 
 
 //On appelle les fichiers header, menu et footer.
-function getHeader(string $title, string $description, array $stylesheets = []) {
+function getHeader(string $title, string $description, array $stylesheets = [])
+{
     require_once 'layout/header.php';
 }
 
-function getMenu() {
+function getMenu()
+{
     require_once 'layout/navigation.php';
 }
 
-function getFooter() {
+function getFooter()
+{
     require_once 'layout/footer.php';
 }
 
-function getInstagram(){
+function getInstagram()
+{
     require_once 'layout/instagram.php';
 }
 
 
 //endwith ne sert à rien: vérifie si la chaine de caractère se ermine par une chaine de caratères.
 //isactive st ce que lURL en court se termine par une chaine de caractère. Utilisé dans le fichier menu_left.
-function isActive(string $url, bool $endWith = false): bool {
+function isActive(string $url, bool $endWith = false): bool
+{
     if (
         (!$endWith && strpos($_SERVER['REQUEST_URI'], $url))
         || ($endWith && endsWith($_SERVER['REQUEST_URI'], $url))
@@ -46,7 +65,9 @@ function isActive(string $url, bool $endWith = false): bool {
     return false;
 }
 
-function endsWith(string $str, string $search): bool {
+function endsWith(string $str, string $search): bool
+{
     $length = strlen($search);
     return substr($str, -$length) === $search;
 }
+

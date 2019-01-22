@@ -2,11 +2,12 @@
 require_once '../../../model/database.php';
 
 $liste_pays = getAllEntities("pays");
+$difficultes = getAllEntities("difficulte");
 
 require_once '../../layout/header.php';
 ?>
 
-    <h1>Ajout d'une photo</h1>
+    <h1>Ajout d'un séjour</h1>
 
     <form action="create_query.php" method="POST" enctype="multipart/form-data">
         <div class="form-group">
@@ -23,6 +24,8 @@ require_once '../../layout/header.php';
                 <?php endforeach; ?>
             </select>
         </div>
+
+
         <div class="form-group">
             <label>Image</label>
             <input type="file" name="image" class="form-control" required>
@@ -31,22 +34,24 @@ require_once '../../layout/header.php';
             <label>Description</label>
             <textarea name="description" class="form-control"></textarea>
         </div>
+
         <div class="form-group">
-            <label>Description courte</label>
-            <input type="text" name="description_courte" class="form-control" placeholder="Description courte" required>
+            <label>Nombre de jours</label>
+            <input type="number" name="nombre" class="form-control" required>
         </div>
+
         <div class="form-group">
-            <label>Nombre de couverts</label>
-            <input type="number" name="couverts" class="form-control" required>
+            <label>Niveau de difficulté</label>
+            <select name="difficulte_id" id="form-control">
+                <?php foreach ($difficultes as $difficulte) : ?>
+                    <option value="<?= $difficulte['id']; ?> ">
+                        <?= $difficulte['niveau']; ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
         </div>
-        <div class="form-group">
-            <label>Temps de preparation</label>
-            <input type="time" name="temps_prepa" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label>Temps de cuisson</label>
-            <input type="time" name="temps_cuisson" class="form-control" required>
-        </div>
+
+
         <div class="form-group form-check">
             <input type="checkbox" name="publie" class="form-check-input" required>
             <label>Publié ?</label>

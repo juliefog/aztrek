@@ -1,9 +1,12 @@
+
 <!-- NAV -->
 <?php
 require_once __DIR__. "/../config/parameters.php";
+require_once __DIR__. "/../functions.php";
 require_once __DIR__ . "/../model/database.php";
 
 $liste_pays = getAllEntities("pays");
+$user = getCurrentUser();
 ?>
 
 
@@ -51,13 +54,17 @@ $liste_pays = getAllEntities("pays");
                 </a></li>
 
             <!-- nav4 -->
-            <li class="has-sublist"><a href="#" class="nav-1">
-                    <h3>Mon compte</h3>
-                </a>
-                <ul class="nav-2">
-                    <li><a href="#">Mes devis</a></li>
-                    <li><a href="#">Mes infos</a></li>
-                </ul>
+            <li class="has-sublist">
+           <?php if (isset($user)) : ?>
+            <li><a href="#" class="nav-1"><i class="fa fa-user"></i>
+                    <h3> <?= $user['prenom']; ?></h3></a></li>
+
+            <li><a href="<?= SITE_ADMIN . "logout.php"; ?>" class="nav-1">
+                    <h3>Déconnexion </h3></a></li>
+            <?php else:  ?>
+               <li><a href="<?= SITE_ADMIN; ?>"><h3>Se connecter</h3></a></li>
+           <?php endif; ?>
+
             </li>
 
             <!-- nav5 -->

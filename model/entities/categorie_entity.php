@@ -15,3 +15,16 @@ function insertCategorie(string $libelle){
 }
 
 
+//Permet de modifier une catégorie dans l'admin:
+function updateCategorie(INT $id, string $libelle){
+    global $connection;
+
+    $query ="UPDATE categorie 
+    SET libelle = :libelle 
+    WHERE id = :id ";
+
+    $stmt = $connection->prepare($query);
+    $stmt->bindParam(":libelle", $libelle);
+    $stmt->bindParam(":id", $id);
+    $stmt->execute();
+}
