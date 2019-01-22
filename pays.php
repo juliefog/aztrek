@@ -3,18 +3,19 @@ require_once 'model/database.php';
 require_once 'functions.php';
 
 $id = $_GET["id"];
+$pays = getOneEntity("pays", $id);
 $sejours= getAllSejoursByPays($id);
 
 
 
 getMenu();
-getHeader("pays", "la page des séjours du pays");
+getHeader($pays["nom"], "la page des séjours du pays");
 
 ?>
 
         <!-- MAIN -->
         <main class="allsejour">
-            <h1>Les circuits au Mexique</h1>
+            <h1>Les circuits au <?= $pays["nom"]; ?></h1>
             <div class="sejours">
 
                 <?php foreach ($sejours as $sejour) : ?>
@@ -22,7 +23,7 @@ getHeader("pays", "la page des séjours du pays");
 
                     <div class="item-sejour">
                         <img src="uploads/<?= $sejour["image"]; ?>" alt=" <?= $sejour["titre"]; ?>">
-                        <a href="  " class="text-hover">
+                        <a href="sejour.php?id=<?= $sejour["id"]; ?>" class="text-hover">
                             <p>GO !</p>
                         </a>
                     </div>

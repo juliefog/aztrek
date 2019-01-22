@@ -9,7 +9,7 @@ function getUtilisateurByEmailMotDePasse(string $email, string $password){
     SELECT *
     FROM utilisateur
     WHERE email = :email
-    AND mot_de_passe = SHA1(:password)
+    AND mdp = SHA1(:password)
     ";
 
     $stmt=$connection->prepare($query);

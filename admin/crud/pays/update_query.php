@@ -3,12 +3,8 @@ require_once '../../security.php';
 require_once '../../../model/database.php';
 
 $id = $_POST['id'];
+$libelle = $_POST['libelle'];
 
-$error = deleteEntity("categorie", $id);
-
-if ($error) {
-    header('Location: index.php?errcode=' . $error->getCode());
-    exit;
-}
+updateCategorie($id, $libelle);
 
 header('Location: index.php');

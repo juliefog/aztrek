@@ -1,5 +1,4 @@
-<!--Pour afficher les séjours dans un pays:-->
-
+<!--Afficher la page séjour-->
 <?php
 function getOneSejour(int $id) : array{
     global $connection;
@@ -9,29 +8,27 @@ function getOneSejour(int $id) : array{
       sejour.titre,
       sejour.image,
       sejour.description,
+      sejour.nb_jour,
       categorie.libelle AS categorie,
-      difficulte.libelle AS difficulte,
-      jour.id AS jour
-      
+      difficulte.niveau AS difficulte,
+    MIN(depart.prix) AS prix
     FROM sejour
+    INNER JOIN depart on sejour.id = depart.sejour_id
     INNER JOIN categorie ON sejour.categorie_id = categorie.id
-    INNER JOIN difficulte  on sejour.difficulte_id = difficulte.id
-    LEFT JOIN jour on sejour.id = jour.sejour_id
+    INNER JOIN difficulte  ON sejour.difficulte_id = difficulte.id
     WHERE sejour.publie = 1
     AND sejour.id = :id
-    GROUP BY sejour_id
-
+GROUP BY sejour.id
     ";
 
     $stmt=$connection->prepare($query);
+    $stmt->bindParam(":id", $id);
     $stmt->execute();
 
     return $stmt->fetch();
 }
 
-
-
-
+//Utilisé dans l'admin :
 
 function getAllSejours(int $limit =999)
 {
@@ -42,7 +39,7 @@ function getAllSejours(int $limit =999)
     sejour.*,
       categorie.libelle AS categorie,
       pays.nom AS pays,
-      difficulte.libelle AS difficulte
+      difficulte.niveau AS difficulte
     FROM sejour
     INNER JOIN categorie ON sejour.categorie_id = categorie.id
     INNER JOIN pays ON sejour.pays_id = pays.id
@@ -59,6 +56,58 @@ function getAllSejours(int $limit =999)
 }
 
 
+//Afficher les étapes sejours:
+
+function getAllEtapesBySejour(string $jour)
+{
+    global $connection;
+
+    $query = "
+    SELECT 
+    jour. *,
+    sejour.id AS sejour
+    FROM jour
+    INNER JOIN sejour on jour.sejour_id = sejour.id
+    WHERE jour.sejour_id = :jour
+    GROUP BY jour.id
+    ";
+
+    $stmt = $connection->prepare($query);
+    $stmt->bindParam(":jour", $jour);
+    $stmt->execute();
+
+    return $stmt->fetchAll();
+}
+
+
+
+
+//Afficher les départs d'un séjour:
+function getAllDepartsBySejour(string $depart)
+{
+    global $connection;
+
+    $query = "
+    SELECT 
+    depart.*,
+    DATE_ADD(depart.date_depart, INTERVAL sejour.nb_jour DAY ) AS date_arrive,
+    sejour.id AS sejour
+    FROM depart
+    INNER JOIN sejour on depart.sejour_id = sejour.id
+    WHERE depart.sejour_id = :depart
+    GROUP BY depart.id
+    ";
+
+
+    $stmt = $connection->prepare($query);
+    $stmt ->bindParam(":depart", $depart);
+    $stmt->execute();
+
+    return $stmt->fetchAll();
+}
+
+
+
 //Pour afficher tous les séjours dans une page pays:
 
 function getAllSejoursByPays(string $pays)
@@ -70,7 +119,7 @@ function getAllSejoursByPays(string $pays)
     sejour.*,
       categorie.libelle AS categorie,
       pays.nom AS pays,
-      difficulte.libelle AS difficulte
+      difficulte.niveau AS difficulte
     FROM sejour
     INNER JOIN categorie ON sejour.categorie_id = categorie.id
     INNER JOIN pays ON sejour.pays_id = pays.id
@@ -88,26 +137,3 @@ function getAllSejoursByPays(string $pays)
 }
 
 
-//
-//
-//function insertRecette(string $titre, int $categorie_id, string $image, string $description, string $description_courte, int $couverts, string $temps_prepa, string $temps_cuisson, int $publie, int $utilisateur_id) {
-//    global $connection;
-//
-//    $query = "
-//    INSERT INTO recette (titre, image, description, description_courte, couverts, temps_prepa, temps_cuisson, publie, date_creation, utilisateur_id, categorie_id)
-//    VALUES (:titre, :image, :description, :description_courte, :couverts, :temps_prepa, :temps_cuisson, :publie, NOW(), :utilisateur_id, :categorie_id)
-//    ";
-//
-//    $stmt = $connection->prepare($query);
-//    $stmt->bindParam(":titre", $titre);
-//    $stmt->bindParam(":image", $image);
-//    $stmt->bindParam(":description", $description);
-//    $stmt->bindParam(":description_courte", $description_courte);
-//    $stmt->bindParam(":couverts", $couverts);
-//    $stmt->bindParam(":temps_prepa", $temps_prepa);
-//    $stmt->bindParam(":temps_cuisson", $temps_cuisson);
-//    $stmt->bindParam(":publie", $publie);
-//    $stmt->bindParam(":categorie_id", $categorie_id);
-//    $stmt->bindParam(":utilisateur_id", $utilisateur_id);
-//    $stmt->execute();
-//}

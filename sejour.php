@@ -2,6 +2,13 @@
 require_once 'model/database.php';
 require_once 'functions.php';
 
+$id = $_GET["id"];
+$sejour = getOneSejour($id);
+$etapes = getAllEtapesBySejour($id);
+$departs = getAllDepartsBySejour($id);
+
+
+
 getMenu();
 getHeader("pays", "la page des séjours du pays");
 
@@ -9,64 +16,53 @@ getHeader("pays", "la page des séjours du pays");
 
         <!-- MAIN -->
         <div class="sejour-top">
-            <h1 class="itineraire">Caminando Mexico</h1>
-            <p>Bienvenue aux randonneurs pour une découverte énergisante du Mexique ! L’altiplano et les légendes de
-                ses
-                volcans majestueux, le Chiapas et son exubérante forêt tropicale, le Yucatán et ses inoubliables sites
-                mayas constituent la colonne vertébrale de ce voyage conçu pour qui souhaite allier marche et culture.
-            </p>
+            <h1 class="itineraire"><?= $sejour["titre"]; ?></h1>
+            <p> <?= $sejour['description']; ?> </p>
 
-            <a href="#" class="tag tag-sejour">#Ascension volcanique</a>
-            <img src="images/image_top_sejour.jpg" alt="caminando">
+            <a href="#" class="tag tag-sejour"> #<?= $sejour['categorie']; ?> </a>
+            <img src="uploads/<?= $sejour['image']; ?>" alt=" <?= $sejour["titre"]; ?> ">
         </div>
 
         <div class="infos-sejour">
-            <p>3 Jours</p>
-            <img src="images/niveau_difficulte_2.png" alt="caminando">
-            <p>A partir de <strong>1389€</strong></p>
+            <p> <?= $sejour['nb_jour']; ?> jours </p>
+
+            <p>
+            <?php $difficulte = $sejour['difficulte']; ?>
+            <?php for($i = 1; $i <=5; $i++) :?>
+            <?php if ($i <= $difficulte) : ?>
+                 <i class ="fa fa-star"></i>
+             <?php  else: ?>
+                <i class ="fa fa-star-O"></i>
+            <?php endif; ?>
+            <?php endfor; ?>
+            </p>
+
+<!--            <p> Niveau : --><?//= $sejour['difficulte']; ?><!--</p>-->
+
+            <p>A partir de  <?= $sejour['prix']; ?> € </p>
         </div>
+
 
 
         <h2 class="itineraire">Itinéraire</h2>
 
         <div class="single-item">
+
+            <?php foreach ($etapes as $etape) :?>
             <div class="jour">
                 <div class="jour-infos">
-                    <h3>JOUR 1</h3>
-                    <h4>Mexico - Puebla - La Venta (3300m)</h4>
-                    <p>Le matin, nous prenons la route pour Puebla, deuxième ville du pays et important pôle économique
-                        et universitaire. La visite du centre-ville, caractérisé par ses maisons coloniales couvertes
-                        de « talaveras » (céramiques typiques de la région), est notamment ponctuée par la visite de la
-                        chapelle du Rosaire, qui constitue un exemple remarquable de l’expression de l’architecture
-                        baroque au Mexique, et de la bibliothèque Palafoxiana.<br>
-                        Fondée en 1646, ce monument historique rassemble plus de 43000 volumes en hébreu, latin,
-                        sanscrit ou grec. Transfert au refuge de La Venta (3300m) pour le dîner.</p>
+                    <h3> Jour <?= $etape['num_jour']; ?></h3>
+                    <h4> <?= $etape['sous_titre']; ?> </h4>
+                    <p> <?= $etape['description']; ?> </p>
                 </div>
                 <div class="jour-images">
-                    <img src="images/image_sejour_slide_1.jpg" alt="caminando">
-                    <img src="images/image_sejour_slide_2.jpg" alt="caminando">
+                    <img src="uploads/<?= $etape['image']; ?> " alt="<?= $sejour["titre"]; ?>">
+                    <img src="uploads/<?= $etape['image_second']; ?>" alt="<?= $sejour["titre"]; ?>">
                 </div>
             </div>
+            <?php endforeach; ?>
 
-            <div class="jour">
-                <div class="bg-jour">
-                    <div class="jour-infos">
-                        <h3>JOUR 2</h3>
-                        <h4>Ascension du volcan : La Malinche (4461m) - Mexico</h4>
-                        <p>Départ nocturne pour l’ascension du volcan La Malinche. Le terrain, relativement facile
-                            compte tenu de l’altitude, et la souplesse de l’organisation, rendent ce légendaire sommet
-                            accessible au plus grand nombre. Il reste néanmoins une véritable ascension, et n écessite
-                            donc une bonne préparation physique.<br>
-                            D’abord sur une alternance de chemins assez larges et de sentiers qui sillonnent une forêt
-                            de conifères, l’ascension devient plus escarpée à l’approche des 4000m mais ne présente pas
-                            de grosse difficulté technique. </p>
-                    </div>
-                    <div class="jour-images">
-                        <img src="images/image_sejour_slide_3.jpg" alt="caminandp">
-                        <img src="images/image_sejour_slide_4.jpg" alt="caminando">
-                    </div>
-                </div>
-            </div>
+
         </div>
 
         <!-- MAIN FIN -->
@@ -81,61 +77,25 @@ getHeader("pays", "la page des séjours du pays");
                         <th>DU</th>
                         <th>AU</th>
                         <th>PRIX ADULTE</th>
-                        <th>DÉPART ASSURÉ</th>
+                        <th>NOMBRE DE PLACE</th>
                         <th>S'INSCRIRE</th>
                     </tr>
                 </thead>
 
                 <tbody>
+
+                <?php foreach ($departs as $depart) :?>
                     <tr>
-                        <td>10/03/2019</td>
-                        <td>14/03/2019</td>
-                        <td>1389€</td>
-                        <td>Assuré à partir de 4</td>
+                        <td> <?= $depart['date_depart']; ?></td>
+                        <td> <?= $depart['date_arrive']; ?> </td>
+                        <td><?= $depart['prix']; ?> € </td>
+                        <td> <?= $depart['nb_places']; ?></td>
                         <td>
                             <a href="#" class="btn-reserve">S'inscrire</a>
                         </td>
                     </tr>
+                <?php endforeach; ?>
 
-                    <tr>
-                        <td>13/04/2019</td>
-                        <td>17/04/2019</td>
-                        <td>1389€</td>
-                        <td> <strong>Assuré au prochain inscrit</strong></td>
-                        <td><a href="#" class="btn-reserve">S'inscrire</a></td>
-                    </tr>
-
-                    <tr>
-                        <td>09/06/2019</td>
-                        <td>13/06/2019</td>
-                        <td>1389€</td>
-                        <td>Assuré à partir de 4</td>
-                        <td><a href="#" class="btn-reserve">S'inscrire</a></td>
-                    </tr>
-
-                    <tr>
-                        <td>13/07/2019</td>
-                        <td>17/07/2019</td>
-                        <td>2189€</td>
-                        <td>Assuré à partir de 4</td>
-                        <td><a href="#" class="btn-reserve">S'inscrire</a></td>
-                    </tr>
-
-                    <tr>
-                        <td>11/08/2019</td>
-                        <td>15/08/2019</td>
-                        <td>2189€</td>
-                        <td>Assuré à partir de 4</td>
-                        <td><a href="#" class="btn-reserve">S'inscrire</a></td>
-                    </tr>
-
-                    <tr>
-                        <td>19/09/2019</td>
-                        <td>23/09/2019</td>
-                        <td>1279€</td>
-                        <td>Assuré à partir de 4</td>
-                        <td><a href="#" class="btn-reserve">S'inscrire</a></td>
-                    </tr>
                 </tbody>
             </table>
 
@@ -145,6 +105,5 @@ getHeader("pays", "la page des séjours du pays");
         </section>
 
         <!-- SECTION RESERVATION FIN -->
-
 
        <?php getFooter() ?>
