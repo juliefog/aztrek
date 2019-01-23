@@ -18,7 +18,7 @@ function getOneSejour(int $id) : array{
     INNER JOIN difficulte  ON sejour.difficulte_id = difficulte.id
     WHERE sejour.publie = 1
     AND sejour.id = :id
-GROUP BY sejour.id
+    GROUP BY sejour.id
     ";
 
     $stmt=$connection->prepare($query);

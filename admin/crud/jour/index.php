@@ -1,7 +1,7 @@
 <?php
 require_once '../../../model/database.php';
 
-$jours = getAllEntities("jour");
+$jours = getAllJoursBySejour($id);
 
 //Ereur dans une catégorie gérée ici:
 $error_msg = null;
@@ -42,7 +42,8 @@ require_once '../../layout/header.php';
 <table class="table table-striped table-bordered table-condensed">
     <thead class="thead-light">
         <tr>
-            <th>Libelle</th>
+            <th>Les jours</th>
+            <th>Les séjours</th>
             <th class="actions">Actions</th>
         </tr>
     </thead>
@@ -50,6 +51,7 @@ require_once '../../layout/header.php';
         <?php foreach ($jours as $jour) : ?>
             <tr>
                 <td>Jour<?php echo $jour['num_jour']; ?></td>
+                <td><?php echo $jour['sejour_titre']; ?></td>
                 <td class="actions">
                     <a href="update.php?id=<?php echo $jour['id']; ?>" class="btn btn-warning">
                         <i class="fa fa-edit"></i>
