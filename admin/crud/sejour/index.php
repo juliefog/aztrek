@@ -1,7 +1,7 @@
 <?php
 require_once '../../../model/database.php';
 
-$sejours = getAllSejours();
+$sejours = getAllSejours(999, false);
 
 $error_msg = null;
 if (isset($_GET['errcode'])) {

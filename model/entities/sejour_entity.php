@@ -28,9 +28,11 @@ GROUP BY sejour.id
     return $stmt->fetch();
 }
 
-//Utilisé dans l'admin :
 
-function getAllSejours(int $limit =999)
+
+//Utilisé dans l'admin pour afficher tous les séjours même ceux qui ne sont pas publiés:
+
+function getAllSejours(int $limit = 999, $onlyPublished = true)
 {
     global $connection;
 
@@ -44,7 +46,13 @@ function getAllSejours(int $limit =999)
     INNER JOIN categorie ON sejour.categorie_id = categorie.id
     INNER JOIN pays ON sejour.pays_id = pays.id
     INNER JOIN difficulte  on sejour.difficulte_id = difficulte.id
-    WHERE sejour.publie = 1
+    ";
+
+    if ($onlyPublished) {
+        $query .= "WHERE sejour.publie = 1";
+    }
+
+    $query .= "
     GROUP BY sejour.id
     LIMIT $limit 
     ";
@@ -54,6 +62,8 @@ function getAllSejours(int $limit =999)
 
     return $stmt->fetchAll();
 }
+
+
 
 
 //Afficher les étapes sejours:
@@ -74,33 +84,6 @@ function getAllEtapesBySejour(string $jour)
 
     $stmt = $connection->prepare($query);
     $stmt->bindParam(":jour", $jour);
-    $stmt->execute();
-
-    return $stmt->fetchAll();
-}
-
-
-
-
-//Afficher les départs d'un séjour:
-function getAllDepartsBySejour(string $depart)
-{
-    global $connection;
-
-    $query = "
-    SELECT 
-    depart.*,
-    DATE_ADD(depart.date_depart, INTERVAL sejour.nb_jour DAY ) AS date_arrive,
-    sejour.id AS sejour
-    FROM depart
-    INNER JOIN sejour on depart.sejour_id = sejour.id
-    WHERE depart.sejour_id = :depart
-    GROUP BY depart.id
-    ";
-
-
-    $stmt = $connection->prepare($query);
-    $stmt ->bindParam(":depart", $depart);
     $stmt->execute();
 
     return $stmt->fetchAll();
@@ -155,10 +138,49 @@ function insertSejour(string $titre, string $categorie_id, string $pays_id, stri
     $stmt->bindParam(":image", $image);
     $stmt->bindParam(":nb_jour", $nb_jour);
     $stmt->bindParam(":publie", $publie);
-    $stmt->execute();
 
     return $stmt->execute();
-
 }
-;
 
+
+
+
+function updateSejours(string $titre, string $categorie_id, string $pays_id, string $difficulte_id, string $description, string $image, string $publie, string $nb_jour){
+
+    global $connection;
+
+    $query ="
+    INSERT INTO sejour (titre, categorie_id, pays_id, difficulte_id, description, image, nb_jour, publie)
+    VALUES (:titre, :categorie_id, :pays_id, :difficulte_id, :description, :image, :nb_jour, :publie)";
+
+    $stmt=$connection->prepare($query);
+    $stmt->bindParam(":titre", $titre);
+    $stmt->bindParam(":categorie_id", $categorie_id);
+    $stmt->bindParam(":pays_id", $pays_id);
+    $stmt->bindParam(":difficulte_id", $difficulte_id);
+    $stmt->bindParam(":description", $description);
+    $stmt->bindParam(":image", $image);
+    $stmt->bindParam(":nb_jour", $nb_jour);
+    $stmt->bindParam(":publie", $publie);
+
+    return $stmt->execute();
+}
+
+//
+//function getSejour($id){
+//    global $connection;
+//
+//    $query = "
+//    SELECT
+//    sejour.*
+//    FROM sejour
+//    GROUP BY sejour.id
+//    ";
+//
+//    $stmt = $connection->prepare($query);
+//    $stmt->bindParam(":id", $id);
+//    $stmt->execute();
+//
+//    return $stmt->fetchAll();
+//
+//}

@@ -27,3 +27,22 @@ function updatePays(INT $id, string $nom){
     $stmt->bindParam(":id", $id);
     $stmt->execute();
 }
+
+
+
+//function getAllPays(string $pays){
+//    global $connection;
+//
+//    $query = "
+//    SELECT
+//    pays.*
+//    FROM pays
+//    GROUP BY pays.id
+//    ";
+//
+//    $stmt = $connection->prepare($query);
+//    $stmt->bindParam(":pays", $pays);
+//    $stmt->execute();
+//
+//    return $stmt->fetchAll();
+//}
