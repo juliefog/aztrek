@@ -44,6 +44,7 @@ require_once '../../layout/header.php';
         <tr>
             <th>Les jours</th>
             <th>Les séjours</th>
+            <th>Sous-Titre</th>
             <th class="actions">Actions</th>
         </tr>
     </thead>
@@ -52,6 +53,7 @@ require_once '../../layout/header.php';
             <tr>
                 <td>Jour<?php echo $jour['num_jour']; ?></td>
                 <td><?php echo $jour['sejour_titre']; ?></td>
+                <td><?php echo $jour['sous_titre']; ?></td>
                 <td class="actions">
                     <a href="update.php?id=<?php echo $jour['id']; ?>" class="btn btn-warning">
                         <i class="fa fa-edit"></i>
