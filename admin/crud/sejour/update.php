@@ -5,7 +5,7 @@ $id = $_GET['id'];
 $sejours = getOneEntity("sejour", $id);
 $liste_categories = getAllEntities("categorie");
 $liste_pays = getAllEntities("pays");
-$difficulte = getAllEntities("difficulte");
+$difficultes = getAllEntities("difficulte");
 
 require_once '../../layout/header.php';
 ?>
@@ -50,10 +50,32 @@ require_once '../../layout/header.php';
             <?php endforeach; ?>
         </select>
     </div>
+
+    <div class="form-group">
+        <label>Difficulté</label>
+        <select name="difficulte_id" class="form-control">
+            <?php foreach ($difficultes as $difficulte) : ?>
+                <?php $selected = ($difficulte["id"] == $difficulte["difficulte_id"]) ? "selected" : ""; ?>
+                <option value="<?php echo $difficulte["id"]; ?>" <?php echo $selected; ?>>
+                    <?php echo $difficulte["niveau"]; ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Nombre de jours</label>
+        <input type="number" name="nb_jour" value="<?php echo $sejours["nb_jour"]; ?>" class="form-control" placeholder="nombre de jour" required>
+    </div>
+
+
     <input type="hidden" name="id" value="<?php echo $id; ?>">
 
+
+
+
     <div class="form-group form-check">
-        <input type="checkbox" name="publie" value="publie" class="form-check-input" required>
+        <input type="checkbox" name="publie" value="on" class="form-check-input" <?= ($sejours['publie']==1) ? 'checked' : '' ?>>
         <label>Publié ?</label>
     </div>
 

@@ -4,6 +4,7 @@ require_once '../../../model/database.php';
 $liste_pays = getAllEntities("pays");
 $difficultes = getAllEntities("difficulte");
 $categories =getAllEntities("categorie");
+//$sejours = getOneEntity("sejour",$id);
 
 require_once '../../layout/header.php';
 ?>
@@ -66,9 +67,11 @@ require_once '../../layout/header.php';
 
 
         <div class="form-group form-check">
-            <input type="checkbox" name="publie" value="publie" class="form-check-input" required>
+            <input type="checkbox" name="publie" value="on" class="form-check-input">
             <label>Publié ?</label>
         </div>
+
+
         <button type="submit" class="btn btn-success">
             <i class="fa fa-check"></i>
             Ajouter

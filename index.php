@@ -1,6 +1,7 @@
 <?php
 require_once 'model/database.php';
 require_once 'functions.php';
+$sejours = getAllEntities("sejour");
 
 getMenu();
 getHeader("Accueil", "Aztrek site de voyages");
@@ -28,17 +29,20 @@ getHeader("Accueil", "Aztrek site de voyages");
                     </div>
 
                     <div class="pays-pop">
-                        <a href="#"><img class="image" src="images/photo_mexique.jpg" alt="Aztrek Mexique"></a>
+                        <a href=""><img class="image" src="images/photo_mexique.jpg" alt="Aztrek Mexique"></a>
                         <h4><span class="capital">Mexique</span> - Yucatan</h4>
 
-                        <div class="texte-hover">
+
+    <div class="texte-hover">
+
                             <ul>
                                 <li>Plus de 70 voyageurs aztrek</li>
                                 <li>Une architechture impressionnante</li>
                                 <li>une ascension volcanique de niveau !</li>
                             </ul>
-                            <a href="#" class="popbtn">Voir le circuit</a>
-                        </div>
+                     <a href="sejour.php?id=4" class="popbtn">Voir le circuit</a>
+    </div>
+
                     </div>
 
 
@@ -95,12 +99,13 @@ getHeader("Accueil", "Aztrek site de voyages");
                 <?php include('carte.svg') ?>
             </div>
             <div class="carte-item">
-                <a href="pays.php" class="pays mexique-carte">
+                <a href="pays.php?id=1" class="pays mexique-carte">
                     <div class="item-pays">
                         <p>Mexique</p>
                         <img src="images/soleil-blanc.svg" alt="aztrek">
                     </div>
                 </a>
+
 
                 <a href="#" class="pays guatemala-carte">
                     <div class="item-pays">

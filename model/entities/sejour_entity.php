@@ -145,21 +145,23 @@ function insertSejour(string $titre, string $categorie_id, string $pays_id, stri
 
 
 
-function updateSejours(string $titre, string $categorie_id, string $pays_id, string $difficulte_id, string $description, string $image, string $publie, string $nb_jour){
+function updateSejours(int $id, string $titre, int $categorie_id, int $pays_id, int $difficulte_id, string $image, string $description, int $publie, int $nb_jour){
 
     global $connection;
 
     $query ="
-    INSERT INTO sejour (titre, categorie_id, pays_id, difficulte_id, description, image, nb_jour, publie)
-    VALUES (:titre, :categorie_id, :pays_id, :difficulte_id, :description, :image, :nb_jour, :publie)";
+    UPDATE sejour SET titre = :titre, categorie_id = :categorie_id, pays_id = :pays_id, difficulte_id = :difficulte_id, image = :image, description = :description, publie=:publie, nb_jour=:nb_jour
+     WHERE id = :id";
+
 
     $stmt=$connection->prepare($query);
+    $stmt->bindParam(":id", $id);
     $stmt->bindParam(":titre", $titre);
     $stmt->bindParam(":categorie_id", $categorie_id);
     $stmt->bindParam(":pays_id", $pays_id);
     $stmt->bindParam(":difficulte_id", $difficulte_id);
-    $stmt->bindParam(":description", $description);
     $stmt->bindParam(":image", $image);
+    $stmt->bindParam(":description", $description);
     $stmt->bindParam(":nb_jour", $nb_jour);
     $stmt->bindParam(":publie", $publie);
 
@@ -167,20 +169,19 @@ function updateSejours(string $titre, string $categorie_id, string $pays_id, str
 }
 
 //
-//function getSejour($id){
-//    global $connection;
-//
-//    $query = "
-//    SELECT
-//    sejour.*
-//    FROM sejour
-//    GROUP BY sejour.id
-//    ";
-//
-//    $stmt = $connection->prepare($query);
-//    $stmt->bindParam(":id", $id);
-//    $stmt->execute();
-//
-//    return $stmt->fetchAll();
-//
-//}
+function getSejour($id){
+    global $connection;
+
+    $query = "
+    SELECT
+    sejour.*
+    FROM sejour
+    GROUP BY sejour.id
+    ";
+
+    $stmt = $connection->prepare($query);
+    $stmt->bindParam(":id", $id);
+    $stmt->execute();
+
+    return $stmt->fetchAll();
+}
