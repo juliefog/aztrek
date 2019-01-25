@@ -6,6 +6,7 @@ $sejours = getAllEntities("sejour");
 getMenu();
 getHeader("Accueil", "Aztrek site de voyages");
 
+
 ?>
 
         <!-- SECTION POPULAIRE -->
@@ -141,3 +142,5 @@ getHeader("Accueil", "Aztrek site de voyages");
 
       <?php getInstagram() ?>
       <?php getFooter() ?>
+
+

@@ -1,7 +1,7 @@
 <?php
 require_once '../../security.php';
 require_once '../../../model/database.php';
-
+//On récupère tous les names du formulaire create.
 $titre = $_POST['titre'];
 $categorie_id = $_POST['categorie_id'];
 $pays_id = $_POST['pays_id'];

@@ -1,7 +1,7 @@
 <?php
 
 
-//Pour afficher tous les jours dans une page séjour:
+//On recherche la liste des jours par séjour :
 
 function getAllJoursBySejour($id)
 {
@@ -23,7 +23,7 @@ function getAllJoursBySejour($id)
 
 
 
-
+//On insert un jour avec les paramètres qui suivent:
 function insertJour(string $num_jour, string $sous_titre, string $description, string $image, string $image_second, string $sejour_id){
 
     global $connection;

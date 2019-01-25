@@ -1,20 +1,22 @@
 <?php
 
+//On insert un pays avec le paramètre nom:
 function insertPays(string $nom)
 {
     global $connection;
 
-//    On veut envoyer des données dans la base de données (on sécurise la valeur libelle)
+//    On veut envoyer des données dans la base de données (on sécurise la valeur nom)
     $query = "INSERT INTO pays(nom) VALUES (:nom)";
 
 
-    //On prépare et exécute la requête: (avec le binparam on associe le :libelle à la variable $libelle)
+    //On prépare et exécute la requête: (avec le binparam on associe le :nom à la variable $nom)
     $stmt = $connection->prepare($query);
     $stmt->bindParam(":nom", $nom);
     $stmt->execute();
 }
 
-//Permet de modifier un pays dans l'admin:
+
+//On met à jour un pays existant sur les paramètre id et nom:
 function updatePays(INT $id, string $nom){
     global $connection;
 
@@ -30,7 +32,7 @@ function updatePays(INT $id, string $nom){
 
 
 
-//function getAllPays(string $pays){
+//function getAllPays(){
 //    global $connection;
 //
 //    $query = "

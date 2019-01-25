@@ -1,6 +1,6 @@
 <?php
 require_once '../../../model/database.php';
-
+//On récupère l'id de l'URL, le séjour, l'ensemble des catégories, des pays et des difficultés:
 $id = $_GET['id'];
 $sejours = getOneEntity("sejour", $id);
 $liste_categories = getAllEntities("categorie");

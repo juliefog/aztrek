@@ -1,5 +1,6 @@
-<!--Afficher la page séjour-->
+<!--Afficher la page séjour en liant les tables séjour, catégorie, difficulté et départ. On affiche séjour quand il est publié -->
 <?php
+//On recherche un séjour par id qu'on affiche dans un tableau:
 function getOneSejour(int $id) : array{
     global $connection;
 
@@ -30,7 +31,8 @@ function getOneSejour(int $id) : array{
 
 
 
-//Utilisé dans l'admin pour afficher tous les séjours même ceux qui ne sont pas publiés:
+//On recherche tous les séjours s'ils sont publiés.
+// Utilisé dans l'admin pour afficher tous les séjours même ceux qui ne sont pas publiés:
 
 function getAllSejours(int $limit = 999, $onlyPublished = true)
 {
@@ -66,7 +68,7 @@ function getAllSejours(int $limit = 999, $onlyPublished = true)
 
 
 
-//Afficher les étapes sejours:
+//On recherche toutes les étapes d'un séjour grâce au paramètre jou:
 
 function getAllEtapesBySejour(string $jour)
 {
@@ -91,7 +93,7 @@ function getAllEtapesBySejour(string $jour)
 
 
 
-//Pour afficher tous les séjours dans une page pays:
+//On recherche tous les séjours par pays:
 
 function getAllSejoursByPays(string $pays)
 {
@@ -120,7 +122,7 @@ function getAllSejoursByPays(string $pays)
 }
 
 
-
+//On insert un séjour avec les paramètres qui suivent.
 function insertSejour(string $titre, string $categorie_id, string $pays_id, string $difficulte_id, string $description, string $image, string $publie, string $nb_jour){
 
     global $connection;
@@ -144,7 +146,7 @@ function insertSejour(string $titre, string $categorie_id, string $pays_id, stri
 
 
 
-
+//On met à jour un séjour sur les paramètres qui suivent:
 function updateSejours(int $id, string $titre, int $categorie_id, int $pays_id, int $difficulte_id, string $image, string $description, int $publie, int $nb_jour){
 
     global $connection;
@@ -166,22 +168,25 @@ function updateSejours(int $id, string $titre, int $categorie_id, int $pays_id, 
     $stmt->bindParam(":publie", $publie);
 
     return $stmt->execute();
-}
+
+
+
+
 
 //
-function getSejour($id){
-    global $connection;
+//function getSejour($id){
+   // global $connection;
 
-    $query = "
-    SELECT
-    sejour.*
-    FROM sejour
-    GROUP BY sejour.id
-    ";
+   // $query = "
+   // SELECT
+   // sejour.*
+   // FROM sejour
+  //  GROUP BY sejour.id
+ //   ";
 
-    $stmt = $connection->prepare($query);
-    $stmt->bindParam(":id", $id);
-    $stmt->execute();
+  //  $stmt = $connection->prepare($query);
+   // $stmt->bindParam(":id", $id);
+  //  $stmt->execute();
 
-    return $stmt->fetchAll();
+   // return $stmt->fetch();
 }

@@ -22,12 +22,16 @@ foreach ($files as $filepath) {
 
 
 
-//FONCTION GENERIQUE: quand on n'a pas de jointure à faire. Et qu'une table est liée directement à une autre (dans le diagramme).C'est une fonction qui permet de récupérer les données dans la BDD,
-//soit toutes les données de la table avc AllEntities soit juste une ligne avec One Entity. On les combine ensuite avec les fonctions particulières.
+//FONCTION GENERIQUE: quand on n'a pas de jointure à faire.
+// Et qu'une table est liée directement à une autre (dans le diagramme).
+//C'est une fonction qui permet de récupérer les données dans la BDD,
+//soit toutes les données de la table avc AllEntities soit juste une ligne avec OneEntity.
+// On les combine ensuite avec les fonctions particulières.
 
 
 //1
-//Récupère l'ensemble des catégories pour la barre de recherche : (on fait une fonction générale) ON pourra l'utiliser pour toutes les tables simples:
+//Récupère l'ensemble des catégories pour la barre de recherche :
+// (on fait une fonction générale) ON pourra l'utiliser pour toutes les tables simples:
 function getAllEntities(string $table): array{
     global $connection;
 

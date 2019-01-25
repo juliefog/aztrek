@@ -1,6 +1,8 @@
 <?php
 require_once '../../../model/database.php';
 
+
+//On récupère tous les séjours jusqu'à une limite de 999 même ceux qui ne sont pas publiés:
 $sejours = getAllSejours(999, false);
 
 $error_msg = null;

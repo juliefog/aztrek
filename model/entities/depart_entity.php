@@ -1,9 +1,10 @@
 <?php
-
+// On recherche la liste de tous les départs:
 function getAllDeparts()
 {
     global $connection;
 
+//Enregistrement de la requête sql dans la variable query:
     $query = "
     SELECT 
         depart.*,
@@ -18,14 +19,16 @@ function getAllDeparts()
     GROUP BY depart.id
     ";
 
-
+//Préparation et excution de la requête:
     $stmt = $connection->prepare($query);
     $stmt->execute();
 
     return $stmt->fetchAll();
 }
 
-//Afficher les réservations d'un séjour:
+
+
+//Recherche la liste de tous les départs en fonction d'un séjour:
 function getAllDepartsBySejour(int $id)
 {
     global $connection;

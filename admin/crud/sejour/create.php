@@ -1,10 +1,9 @@
 <?php
 require_once '../../../model/database.php';
-
+//On récupère toutes les informations des tables pays, difficulte, categorie:
 $liste_pays = getAllEntities("pays");
 $difficultes = getAllEntities("difficulte");
 $categories =getAllEntities("categorie");
-//$sejours = getOneEntity("sejour",$id);
 
 require_once '../../layout/header.php';
 ?>

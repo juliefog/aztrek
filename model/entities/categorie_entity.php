@@ -1,10 +1,11 @@
 <?php
-
+//Insert une nouvelle entité avec le paramètre libelle:
 function insertCategorie(string $libelle){
 
     global $connection;
 
-//    On veut envoyer des données dans la base de données (on sécurise la valeur libelle)
+//    On enregistre la requête sql dans la variable $query.
+//On veut envoyer des données dans la base de données (on sécurise la valeur libelle)
     $query ="INSERT INTO categorie(libelle) VALUES (:libelle)";
 
 
@@ -15,7 +16,8 @@ function insertCategorie(string $libelle){
 }
 
 
-//Permet de modifier une catégorie dans l'admin:
+
+//Permet de modifier une catégorie dans l'admin met à jour l'entité catégorie sur les paramètres id et libelle:
 function updateCategorie(INT $id, string $libelle){
     global $connection;
 
